@@ -409,7 +409,7 @@ export default function Home() {
                     </motion.div>
                 </div>
                 <motion.div
-                className={`flex w-[${projects.length * 50}%] h-[90%]`}
+                className={`flex w-[200%] h-[90%]`}
                 animate={{ x: `-${currentIndex * 50}%` }}
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
                 >
