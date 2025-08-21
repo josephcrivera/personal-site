@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #93eded;
+  --background: #FFFFFF;
   --foreground: #000000;
+}
+
+.fg-reg {
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* :root {
@@ -17,19 +23,32 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 100%;
+  font-family: "Faculty Glyphic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1 {
     font-size: 4em;
+    color: #2F6056;
 }
+
 h2 {
+    color: #2F6056;
     font-size: 3em;
 }
 
-a:hover {
-    color: #357266;
+h3 {
+    color: #F283B6;
+    font-size: 2em;
+}
+
+h2#projects, h2#skills {
+    color: #ffffff;
+}
+
+a.navbar:hover {
+    color: #F283B6;
 }
 
 .perspective {
@@ -52,15 +71,13 @@ a:hover {
   position: relative;
   width: 400px;
   height: 400px;
-  /* margin: 50px auto; */
   /* border: 4px dashed #ccc;   */
-  /*For visualization*/
   border-radius: 50%;
 }
 
 .circle-item {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 40%;
   width: 70px;
   height: 70px;
@@ -70,14 +87,7 @@ a:hover {
     box-shadow: 0px 5px 5px 1px grey;
 }
 
-/* #sections {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+.section {
+    max-width: 120rem;
+    padding: 0px 40px;
 }
-
-#sections section {
-    height: 100vh;
-    scroll-snap-align: start;
-
-} */
