@@ -49,7 +49,7 @@ function SkillCard({title, desc, logo}) {
 
 function ContactInfo({title, logo}){
     return (
-        <div className="mb-5 flex flex-row h-15 items-center border-1 rounded-xl w-3/4">
+        <div className="mb-5 flex flex-row h-15 items-center rounded-xl w-full bg-[#51A493] box-item">
             <Image
                 src={logo}
                 width={50}
@@ -58,7 +58,19 @@ function ContactInfo({title, logo}){
                 className="ml-5"
             />
             <div className="flex items-center p-3">
-                <p className="text-lg text-center">{title}</p>
+                <p className="text-lg text-center text-white">{title}</p>
+            </div>
+        </div>
+    );
+}
+
+function LangTags({langs, idx}) {
+    return (
+        <div className="flex w-full h-full gap-3 items-center justify-center">
+            <div className="flex flex-wrap gap-3 items-center justify-center w-[90%] h-full">
+                {langs[idx].map((lang, i) => (
+                    <p key={i} className="bg-[#F283B6] px-5 py-2 rounded-full">{lang}</p>
+                ))}
             </div>
         </div>
     );
@@ -83,9 +95,9 @@ function XPBox ({idx}) {
             "Created email and document templates to accommodate for teams and increase worker efficiency"
         ],
         [
-            "1",
-            "2",
-            "3"
+            "Created multiple web pages with TypeScript and Tailwind CSS to display important legal documentation",
+            "Fixed the application’s back-end Python code to improve user experience and decrease user complaints by 15%",
+            "Created methods to clean the SQL database of unauthenticated third-party calendars"
         ],
         [
             "Optimized methods of preprocessing text with Python to increase keyword retention and extraneous word deletion",
@@ -94,9 +106,9 @@ function XPBox ({idx}) {
         ]
     ];
     const used = [
-        "HTML5, CSS",
-        "Python, JavaScript, Tailwind, Typescript, HTML5, CSS, React",
-        ""
+        ["HTML5", "CSS"],
+        ["Python", "JavaScript", "Tailwind", "Typescript", "HTML5", "CSS","React"],
+        ["Python"]
     ]
 
     return (
@@ -110,10 +122,10 @@ function XPBox ({idx}) {
             >
                 {/* FRONT */}
                 <motion.div 
-                whileHover={{boxShadow: '0 0 10px 3px red'}}
-                onHoverStart={() => setIsHovered(true)}
-                onHoverEnd={() => setIsHovered(false)}
-                className="box-item absolute flex flex-col bg-[#087E8B] w-full h-full backface-hidden rounded-xl border-2 border-[#171738]"
+                // whileHover={{boxShadow: '0 0 10px 3px #F5A3C9'}}
+                // onHoverStart={() => setIsHovered(true)}
+                // onHoverEnd={() => setIsHovered(false)}
+                className="box-item absolute flex flex-col bg-[#51A493] w-full h-full backface-hidden rounded-xl border-2 border-[#171738]"
                 >
                     <div>
                         <p className="mt-3 text-4xl text-center text-white">{companies[idx]}</p>
@@ -121,23 +133,19 @@ function XPBox ({idx}) {
                     </div>
                     <div className="flex flex-col w-full h-full items-center justify-end">
                         <p className="mt-3 text-2xl text-white">{positions[idx]}</p>
-                        {/* <Image
-                            src={logos[idx]}
-                            width={100}
-                            height={100}
-                            alt=""
-                            className=""
-                        /> */}
                     </div>
-                    <div className="flex flex-col bottom-0 h-full w-full justify-end items-end pr-5">
+                    <div className="flex flex-col w-full h-full justify-end items-center px-5 mt-5">
+                        <LangTags langs={used} idx={idx} />
+                    </div>
+                    <div className="flex flex-col bottom-0 h-1/2 w-full justify-end items-end pr-5">
                         <p className={isHovered ? "text-white/50" : "text-white/0"}>Click to read more</p>
                     </div>
                     
                 </motion.div>
                 {/* BACK */}
                 <motion.div 
-                whileHover={{boxShadow: '0 0 10px 3px red'}}
-                className="box-item absolute bg-[#F4D35E] w-full h-full backface-hidden rotate-y-180 rounded-xl border-2 border-[#171738]"
+                // whileHover={{boxShadow: '0 0 10px 3px #2F6056'}}
+                className="box-item absolute bg-[#FFF9EC] w-full h-full backface-hidden rotate-y-180 rounded-xl border-2 border-[#171738]"
                 >
                     <div className="flex flex-col justify-center w-full h-full pl-5 pr-5 items-center">
                         <ul className="list-disc list-inside">
@@ -152,22 +160,6 @@ function XPBox ({idx}) {
         </motion.div>
     );
 }
-
-// function Project ({title, description}) {
-//     return (
-//         <motion.div
-//         className="flex flex-col box-item w-full h-3/4 bg-white items-center"
-//         >
-//             <div className="w-9/10 h-full bg-black mt-5">
-
-//             </div>
-//             <div className="w-full h-1/4 bg-white pl-5 pt-5">
-//                 <p className="text-4xl">{title}</p>
-//                 <p className="text-xl">{description}</p>
-//             </div>
-//         </motion.div>
-//     );
-// }
 
 function SkillWheel() {
     const skills = ["Python",  "Tailwind", "TypeScript", "JavaScript", "React", "HTML5", "Java", "C"];
@@ -239,9 +231,9 @@ function SkillWheel() {
     
 
   return (
-    <div className="flex h-full w-full justify-center">
+    <div className="flex flex-row h-full w-full items-center justify-center">
         <div className="w-full circle-container">
-            <p className="pl-22 pt-55 text-xl font-bold">Pick a skill to learn more</p>
+            <p className="pl-22 pt-25 text-xl text-white fg-reg">Pick a skill to learn more</p>
             {icons.map((src, i) => {
             const angleOffset = (360 / totalItems) * i;
             const totalAngle = normalizeAngle(rotation.get() + angleOffset);
@@ -265,7 +257,7 @@ function SkillWheel() {
                 }}
                 whileHover={{
                     scale: 1.1,
-                    boxShadow: '0 0 10px 3px red'
+                    boxShadow: '0 0 10px 3px #F5A3C9'
                 }}
                 onClick={() => handleClick(i)}
                 className="circle-item bg-white rounded-full p-2"
@@ -273,53 +265,38 @@ function SkillWheel() {
             );
             })}
         </div>
-        {/* <div className="w-full circle-container">
-            {icons.map((i) => {
-            const angleOffset = (360 / totalItems) * i;
-            const angleInRadians = ((rotation.get() + angleOffset) * Math.PI) / 180;
-            const x = radius * Math.cos(angleInRadians);
-            const y = radius * Math.sin(angleInRadians);
-
-            return (
-                <motion.div
-                key={i}
-                animate={{ x, y }}
-                transition={{ type: "spring", stiffness: 100 }}
-                style={{ position: "absolute" }}
-                className="circle-item bg-white rounded-full p-2 w-10 h-10"
-                >
-                </motion.div>
-            );
-            })}
-        </div> */}
-        <div className="ml-30 w-1/2 h-full flex flex-col">
-        <div className="box-item w-full bg-[#087E8B] rounded-xl h-1/2 flex flex-col items-center justify-center text-white text-xl border-2 border-[#171738]">
-            <p>{skills[currSkill]}</p>
-            <p>{skillsDesc[currSkill]}</p>
-        </div>
-        <div className="mt-5 flex flex-row w-full justify-center">
-            {/* <motion.div
-            className="w-1/4 h-15 bg-[#087E8B] rounded-xl flex items-center justify-center cursor-pointer text-white border-2 border-[#171738]"
-            onClick={() => handleClick("prev")}
-            whileHover={{scale: 1.1}}
-            >
-            <p>Previous</p>
-            </motion.div> */}
-            {/* <motion.div
-            className="w-1/4 h-15 bg-[#087E8B] rounded-xl flex items-center justify-center cursor-pointer text-white border-2 border-[#171738]"
-            onClick={() => handleClick()}
-            whileHover={{scale: 1.1}}
-            >
-            <p>Next Skill</p>
-            </motion.div> */}
-        </div>
+        <div className="ml-30 w-1/2 h-full flex flex-col justify-center items-center pb-40">
+            <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-1/2 flex flex-col pl-5 justify-center text-xl border-2 border-[#171738]">
+                <p className="text-[#F283B6]">{skills[currSkill]}</p>
+                <p>{skillsDesc[currSkill]}</p>
+            </div>
         </div>
     </div>
   );
 }
 
-function Project ({title, description, currIdx, itemIdx}) {
+function Project ({currIdx, itemIdx}) {
+    const titles = ["Personal Website", "Blokus Game Simulation", "Stardew Valley Info Guide", "Stadium Interface Simulation"]
+    const descriptions = ["A reactive personal portfolio", "A group game simulation", "A web-scraping tool for information", "A textual user interface"]
+    const used = [
+        ["HTML5", "CSS", "JavaScript", "Tailwind"],
+        ["Python"],
+        ["Python"],
+        ["Java"]
+    ]
+    const links = [
+        "https://github.com/josephcrivera/personal-site",
+        "https://github.com/josephcrivera/Blokus_Game_Simulation",
+        "https://github.com/josephcrivera/Stardew-Valley-Info-Guide",
+        "https://github.com/josephcrivera/Stadium_Interface_Simulation"
+    ]
 
+    const snapshots = [
+        "/personal-site.png",
+        "/personal-site.png",
+        "/personal-site.png",
+        "/personal-site.png"
+    ]
     const inView = itemIdx == currIdx || itemIdx - 1 == currIdx;
     return (
         <motion.div
@@ -328,12 +305,25 @@ function Project ({title, description, currIdx, itemIdx}) {
             "flex flex-col box-item w-[90%] h-full bg-white items-center justify-center"
             : "flex flex-col w-[90%] h-full bg-white items-center justify-center"}
         >
-            <div className="w-9/10 h-full bg-black mt-5">
-
+            <div className="w-9/10 h-full bg-black mt-5 relative">
+                <a href={links[itemIdx]} target="_blank">
+                    <Image 
+                    src={snapshots[itemIdx]}
+                    fill
+                    alt=""
+                    className="object-cover"
+                    />
+                </a>
             </div>
-            <div className="w-full h-1/4 bg-white pl-5 pt-5">
-                <p className="text-4xl">{title}</p>
-                <p className="text-xl">{description}</p>
+            <div className="flex flex-row w-full h-1/4 bg-white pl-5 pt-5">
+                <div className="w-full h-full">
+                    <p className="text-2xl">{titles[itemIdx]}</p>
+                    <p className="text-lg">{descriptions[itemIdx]}</p>
+                </div>
+                <div className="w-full h-full pb-2">
+                    <LangTags langs={used} idx={itemIdx}/>
+                </div>
+                
             </div>
         </motion.div>
     );
@@ -343,7 +333,7 @@ export default function Home() {
     const [isHoveredLeft, setIsHoveredLeft] = useState(false);
     const [isHoveredRight, setIsHoveredRight] = useState(false);
 
-    const projects = ["Project 1", "Project 2", "Project 3", "Project 4"];
+    const projects = ["", "", "", ""];
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -353,28 +343,49 @@ export default function Home() {
     const handlePrev = () =>
         setCurrentIndex((prev) => 
             prev == 0 ? 0 : (prev - 2 + projects.length) % projects.length);
-
     return (
     <main>
-    <div className="mx-auto max-w-8xl px-10" id="sections">
+    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth pt-16" id="sections">
         {/* Image, Name, Blurb */}
-        <section>
-        <div className="mb-10">
-            <div className="w-full my-auto">
-                <h1 className="mt-5 mb-3 text-2xl text-center font-bold">Joseph Rivera</h1>
-                    <p className="text-2xl mb-5 text-center">Computer Science Student, University of Chicago</p>
-                    {/* <p className="ml-5 mb-5 text-lg">As an avid learner, I am looking to explore the professional world 
-                    and gain as much knowledge about software engineering as possible. I&#39;ve invested time in teaching 
-                    myself programming outside of my high school and college classes. I wish to continue this intellectual 
-                    journey in a place that emphasizes learning and growth.</p> */}
+        <section className="snap-start h-screen section">
+        <div className="mb-10 flex flex-col h-full">
+            <div className="w-full h-full my-auto flex flex-row items-center">
+                <div className="flex items-center justify-center">
+                    <Image
+                    src="/Current_Headshot-modified.png"
+                    width={500}
+                    height={500}
+                    alt="headshot"
+                    className="bg-[#2F6056] rounded-full p-3"
+                    />
+                </div>
+                <div className="flex flex-col w-3/4 h-full ml-10">
+                    <h1 id="about" className="pt-24 my-5 text-8xl text-center fg-reg">Joseph Rivera</h1>
+                    <p className="text-2xl mb-5 text-center fg-reg">Computer Science Student, University of Chicago</p>
+                    <p className="text-2xl mb-5 fg-reg mx-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id odio sit amet neque 
+                        convallis hendrerit. Duis sagittis blandit lacus in tincidunt. Maecenas elementum massa sed augue pretium, 
+                        a varius lorem porta. Aliquam ornare risus et nisi consequat, ut pulvinar arcu condimentum.
+                    </p>
+                    <p className="text-2xl mb-20 fg-reg mx-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id odio sit amet neque 
+                        convallis hendrerit. Duis sagittis blandit lacus in tincidunt. Maecenas elementum massa sed augue pretium, 
+                        a varius lorem porta. Aliquam ornare risus et nisi consequat, ut pulvinar arcu condimentum.
+                    </p>
+                    <p className="text-2xl text-center fg-reg mb-5">Contact Info</p>
+                    <div className="w-full h-1/4 flex flex-row gap-10 justify-center">
+                        <a href="https://www.linkedin.com/in/joseph-rivera-951b74293" target="_blank"><ContactInfo title="Joseph Rivera" logo="/linkedin.svg"/></a>
+                        <a href="https://www.github.com/josephcrivera" target="_blank"><ContactInfo title="josephcrivera" logo="/github.svg"/></a>
+                        <a href="mailto:josephrivera@uchicago.edu" target="_blank"><ContactInfo title="josephrivera@uchicago.edu" logo="/email.svg"/></a>
+                        <a href="/Joseph_Rivera_25.pdf" download target="_blank"><ContactInfo title="Resume" logo="/file.svg"/></a>
+                    </div>
+                </div>
             </div>
         </div>
         </section>
 
         {/* Skills Section */}
-        <section id="skills">
-        <div className="mb-10 h-200">
-            <h2 className="pt-16 font-bold">Skills</h2>
+        <section className="snap-start h-screen section bg-[#51A493]">
+        <div className="mb-10 h-full section">
+            <h2 id="skills" className="pt-16 fg-reg">Skills</h2>
                 <div className="w-full h-full">
                     <SkillWheel></SkillWheel>
                 </div>
@@ -382,10 +393,10 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section>
-        <div className="mb-10 w-full h-150">
-            <h2 id="experience" className="pt-16 font-bold">Technical Experience</h2>
-            <div className="grid grid-cols-3 gap-5 justify-items-center">
+        <section className="snap-start h-screen section">
+        <div className="mb-10 w-full h-full section">
+            <h2 id="experience" className="pt-16 fg-reg">Technical Experience</h2>
+            <div className="grid grid-cols-3 gap-5 justify-items-center h-full items-center pb-40">
                 <XPBox idx="0"/>
                 <XPBox idx="1"/>
                 <XPBox idx="2"/>
@@ -394,9 +405,9 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section>
-        <div className="mb-10 h-200 overflow-hidden">
-            <h2 id="projects" className="pt-16 font-bold">Projects</h2>
+        <section className="snap-start h-screen section bg-[#51A493]">
+        <div className="mb-10 h-full overflow-hidden">
+            <h2 id="projects" className="pt-16 fg-reg">Projects</h2>
             <div className="relative flex overflow-hidden w-full h-3/4 pt-10 px-10 items-center justify-center">
                 <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-5">
                     <motion.div
@@ -405,7 +416,7 @@ export default function Home() {
                     onHoverEnd={() => setIsHoveredLeft(false)}
                     className="cursor-pointer"
                     >
-                        <i className="material-icons" style={isHoveredLeft ? {fontSize:"96px", color:"red"} : {fontSize: "96px"}}>chevron_left</i>
+                        <i className="material-icons" style={isHoveredLeft ? {fontSize:"96px", color:"#F283B6"} : {fontSize: "96px", color: "white"}}>chevron_left</i>
                     </motion.div>
                 </div>
                 <motion.div
@@ -415,7 +426,7 @@ export default function Home() {
                 >
                 {projects.map((project, i) => (
                     <div key={i} className="w-1/2 h-full flex-shrink-0 flex items-center justify-center">
-                    <Project title={project} description="blah" currIdx={currentIndex} itemIdx={i} />
+                    <Project currIdx={currentIndex} itemIdx={i} />
                     </div>
                 ))}
                 </motion.div>
@@ -426,7 +437,7 @@ export default function Home() {
                     onHoverEnd={() => setIsHoveredRight(false)}
                     className="cursor-pointer"
                     >
-                        <i className="material-icons" style={isHoveredRight ? {fontSize:"96px", color:"red"} : {fontSize: "96px"}}>chevron_right</i>
+                        <i className="material-icons" style={isHoveredRight ? {fontSize:"96px", color:"#F283B6"} : {fontSize: "96px", color: "white"}}>chevron_right</i>
                     </motion.div>
                 </div>
             </div>
@@ -434,28 +445,25 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section>
-        <div className="h-150">
-            <h2 id="contact" className="pt-16 mb-5 font-bold">Contact</h2>
-            <div className="flex flex-row justify-between">
-                <div className="w-1/2">
-                    <h3 className="mb-3">Have Ideas?</h3>
-                    <p>Fill out the form on the right or contact me at one of the options below. </p>
-                    <div className="mt-5 flex flex-col w-1/2">
-                        <a href="www.linkedin.com/in/joseph-rivera-951b74293" target="_blank"><ContactInfo title="Joseph Rivera" logo="/linkedin.svg"/></a>
-                        <a href="www.github.com/josephcrivera" target="_blank"><ContactInfo title="josephcrivera" logo="/github.svg"/></a>
-                        <a href="mailto:josephrivera@uchicago.edu" target="_blank"><ContactInfo title="josephrivera@uchicago.edu" logo="/email.svg"/></a>
-                    </div>
+        <section className="snap-start h-screen section">
+        <div className="h-full ">
+            <h2 id="contact" className="pt-16 mb-5 fg-reg">Contact</h2>
+            <div className="flex flex-col h-3/4 items-center justify-center">
+                <div className="mb-10">
+                    <h3 className="text-center fg-reg">Send a Message</h3>
+                    <p className="text-center fg-reg"> Feel free to submit your infomration below if you have ideas, need guidance on a project, or simply wish to chat.</p>
                 </div>
-                <div className="w-1/3 mx-auto">
+                <div className="w-1/2 mx-auto">
                     <form action="" method="post" id="contact-form" className="mx-auto">
+                        <label className="font-semibold">Name</label><br/>
+                        <input type="text" placeholder="Name" name="name" className="border-1 rounded-md w-full h-8 p-3 mb-5 bg-white"></input><br/>
                         <label className="font-semibold">Email</label><br/>
-                        <input type="email" placeholder="Email" name="email" className="border-1 rounded-md w-full h-8 p-3 mb-5"></input><br/>
+                        <input type="email" placeholder="Email" name="email" className="border-1 rounded-md w-full h-8 p-3 mb-5 bg-white"></input><br/>
                         <label className="font-semibold">Subject</label><br/>
-                        <input type="text" placeholder="Subject" name="subject" className="border-1 rounded-md w-full h-8 p-3 mb-5"></input><br/>
+                        <input type="text" placeholder="Subject" name="subject" className="border-1 rounded-md w-full h-8 p-3 mb-5 bg-white"></input><br/>
                         <label className="font-semibold">Message</label><br/>
-                        <input type="textarea" placeholder="Message" name="message" className="border-1 rounded-md w-full h-25 pl-3 pr-3 pt-3 pb-20 mb-5"></input><br/>
-                        <button type="submit" value="Submit" className="block mx-auto w-20 h-10 border-1 border-black rounded-md">Submit</button>
+                        <input type="textarea" placeholder="Message" name="message" className="border-1 rounded-md w-full h-25 pl-3 pr-3 pt-3 pb-20 mb-5 bg-white"></input><br/>
+                        <button type="submit" className="block mx-auto w-20 h-10 border-1 border-black rounded-md cursor-pointer bg-[#F283B6]">Submit</button>
                     </form>
                 </div>
             </div>

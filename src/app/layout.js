@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Faculty_Glyphic } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
@@ -12,6 +12,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const faculty = Faculty_Glyphic({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+});
+
 export const metadata = {
   title: "Joseph Rivera - Full Stack Developer",
   description: "A personal portfolio",
@@ -21,26 +27,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
         <head>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></link>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
         </head>
         <body>
             {/* NAVBAR */}
-            <nav className="z-10 fixed inset-x-0 top-0">
-                <div className="flex flex-row p-5 justify-between bg-[#93eded]/50 backdrop-blur-md">
+            <nav className="z-50 fixed inset-x-0 top-0 h-12">
+                <div className="h-full flex flex-row p-5 justify-between bg-white/50 backdrop-blur-md items-center">
                     <div className="">
-                        <Link href="/" className="text-2xl">&#8962;</Link>
+                        <Link href="/" className="text-2xl navbar">&#8962;</Link>
                     </div>
                     <div className="flex flex-row gap-8">
-                        <a href="#skills">Skills</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact</a>
+                        <a href="#about" className="navbar">About</a>
+                        <a href="#skills" className="navbar">Skills</a>
+                        <a href="#experience" className="navbar">Experience</a>
+                        <a href="#projects" className="navbar">Projects</a>
+                        <a href="#contact" className="navbar">Contact</a>
                     </div>
                 </div>
             </nav>
             
             {/* main content */}
-            <main className="pt-24 z-15">
+            <main className="z-15">
                 {children}
             </main>
         </body>
