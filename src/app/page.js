@@ -9,14 +9,17 @@ import Image from "next/image";
 function ContactInfo({title, logo}){
     return (
         <div className="mb-5 flex flex-row h-15 items-center rounded-xl w-full bg-[#51A493] box-item">
-            <Image
-                src={logo}
-                width={50}
-                height={50}
-                alt=""
-                className="ml-5"
-            />
-            <div className="flex items-center p-3">
+            <div className="relative w-[2.604vw] h-full ml-5">
+                <Image
+                    src={logo}
+                    // width={50}
+                    // height={50}
+                    fill
+                    alt="logo"
+                    className="object-contain"
+                />
+            </div>
+            <div className="flex items-center p-3 w-full">
                 <p className="textlg text-center text-white">{title}</p>
             </div>
         </div>
@@ -233,19 +236,21 @@ function SkillWheel() {
             </div>
         </div>
         <div className="ml-30 w-1/4 h-1/2 flex flex-col justify-center items-center bg-green-600/50">
-            <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col pl-5 justify-center textxl">
-                <h3 className="mb-5">{skills[currSkill]}</h3>
-                <ul className="list-disc list-inside">
+            <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col pl-5 justify-center">
+                <h3 className="mb-5 textxl">{skills[currSkill]}</h3>
+                <ul className="list-disc list-inside textxl2">
                     <li className="fg-reg mb-5">{skillsDesc[currSkill][0]}</li>
                     <li className="fg-reg mb-5">{skillsDesc[currSkill][1]}</li>
                     <li className="fg-reg mb-5">{skillsDesc[currSkill][2]}</li>
                 </ul>
             </div>
         </div>
-        <div className="ml-30 w-1/3 h-1/2 flex flex-col justify-center items-center">
-             <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col justify-center textxl">
-                <p className="textxl mb-5 fg-reg mx-10">{skillBlurbs[currSkill]}</p>
-             </div>
+        <div className="ml-30 w-1/3 h-1/2 flex flex-col justify-center items-center min-w-0">
+            <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col justify-center min-w-0">
+                <p className="textxl2 mb-5 fg-reg mx-10 whitespace-normal">
+                {skillBlurbs[currSkill]}
+                </p>
+            </div>
         </div>
     </div>
   );
@@ -335,21 +340,22 @@ export default function Home() {
             prev == 0 ? 0 : (prev - 1 + projects.length) % projects.length);
     return (
     <main>
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth min-w-7xl pt-16 max-w-full" id="sections">
+    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth min-w-5xl pt-16" id="sections">
         {/* Image, Name, Blurb */}
-        <section className="snap-start h-screen section">
-        <div className="mb-10 flex flex-col h-full">
-            <div className="w-full h-full my-auto flex flex-row items-center">
-                <div className="flex items-center justify-center">
+        <section className="snap-start h-screen section w-full">
+        <div className="mb-10 flex flex-row h-full w-full">
+            <div className="w-full h-full flex flex-row items-center">
+                <div className="flex items-center justify-center relative w-[26.042vw] aspect-square">
                     <Image
                     src="/Current_Headshot-modified.png"
-                    width={500}
-                    height={500}
+                    // width={500}
+                    // height={500}
+                    fill
                     alt="headshot"
-                    className="bg-[#2F6056] rounded-full p-3"
+                    className="object-contain bg-[#2F6056] rounded-full p-3"
                     />
                 </div>
-                <div className="flex flex-col w-3/4 h-full ml-10 items-center">
+                <div className="flex flex-col w-3/4 h-full ml-10 items-center justify-center">
                     <h1 id="about" className="pt-24 my-5 text-8xl text-center fg-reg">Joseph Rivera</h1>
                     <p className="textxl mb-10 text-center fg-reg">Computer Science Student, University of Chicago</p>
                     <p className="textxl mb-10 fg-reg mx-10 indented-paragraph w-3/4">From buying programming textbooks with birthday money and taking 
@@ -372,10 +378,10 @@ export default function Home() {
             </div>
         </div>
         </section>
-
+        {/* further code */}
         {/* Skills Section */}
-        <section className="snap-start h-screen section bg-[#51A493]">
-        <div className="mb-10 h-full section">
+        <section className="snap-start h-screen section w-full bg-[#51A493]">
+        <div className="mb-10 h-full w-full section">
             <h2 id="skills" className="pt-16 fg-reg">Skills</h2>
                 <div className="w-full h-3/4">
                     <SkillWheel></SkillWheel>
@@ -384,7 +390,7 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section className="snap-start h-screen section">
+        <section className="snap-start w-full  h-screen section">
         <div className="mb-10 w-full h-full section">
             <h2 id="experience" className="pt-16 fg-reg">Technical Experience</h2>
             <div className="grid grid-cols-3 gap-5 justify-items-center h-full items-center pb-40">
@@ -396,7 +402,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section className="snap-start h-screen section bg-[#51A493]">
+        <section className="snap-start w-full h-screen section bg-[#51A493]">
         <div className="mb-10 h-full overflow-hidden">
             <h2 id="projects" className="pt-16 fg-reg">Projects</h2>
             <div className="relative flex overflow-hidden w-full h-3/4 pt-10 px-10 items-center justify-center">
@@ -407,7 +413,7 @@ export default function Home() {
                     onHoverEnd={() => setIsHoveredLeft(false)}
                     className="cursor-pointer"
                     >
-                        <i className="material-icons" style={isHoveredLeft ? {fontSize:"96px", color:"#F283B6"} : {fontSize: "96px", color: "white"}}>chevron_left</i>
+                        <i className="material-icons lor" style={isHoveredLeft ? {fontSize:"5vw", color:"#F283B6"} : {fontSize: "5vw", color: "white"}}>chevron_left</i>
                     </motion.div>
                 </div>
                 <motion.div
@@ -428,7 +434,7 @@ export default function Home() {
                     onHoverEnd={() => setIsHoveredRight(false)}
                     className="cursor-pointer"
                     >
-                        <i className="material-icons" style={isHoveredRight ? {fontSize:"96px", color:"#F283B6"} : {fontSize: "96px", color: "white"}}>chevron_right</i>
+                        <i className="material-icons" style={isHoveredRight ? {fontSize:"5vw", color:"#F283B6"} : {fontSize: "5vw", color: "white"}}>chevron_right</i>
                     </motion.div>
                 </div>
             </div>
@@ -436,7 +442,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="snap-start h-screen section">
+        <section className="snap-start w-full h-screen section">
         <div className="h-full ">
             <h2 id="contact" className="pt-16 mb-5 fg-reg">Contact</h2>
             <div className="flex flex-col h-3/4 items-center justify-center">
