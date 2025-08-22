@@ -29,18 +29,18 @@ body {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: clamp(48px, 3.333vw, 80px);
     color: #2F6056;
 }
 
 h2 {
     color: #2F6056;
-    font-size: 3em;
+    font-size: clamp(32px, 2.5vw, 64px);
 }
 
 h3 {
     color: #F283B6;
-    font-size: 2em;
+    font-size: clamp(16px, 1.667vw, 48px);
 }
 
 h2#projects, h2#skills {
@@ -69,8 +69,8 @@ a.navbar:hover {
 
 .circle-container {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 25em;
+  height: 25em;
   /* border: 4px dashed #ccc;   */
   border-radius: 50%;
 }
@@ -79,20 +79,33 @@ a.navbar:hover {
   /* position: absolute; */
   /* top: 20%;
   left: 40%; */
-  width: 80px;
-  height: 80px;
+  width: 5em;
+  height: 5em;
 }
 
 .box-item {
-    box-shadow: 0px 5px 5px 1px grey;
-    border: 2px solid black;
+    box-shadow: 0px 0.313em 0.313em 0.063rem grey;
+    border: 0.13em solid black;
 }
 
 .section {
-    max-width: 120rem;
-    padding: 0px 40px;
+    max-width: 120em;
+    padding: 0em 2.5em;
 }
 
 .indented-paragraph {
-    text-indent: 40px;
+    text-indent: 2.5em;
 }
+
+.textlg {
+    font-size: clamp(12px, 0.938vw, 32px);
+}
+
+.textxl {
+    font-size: clamp(20px, 1.25vw, 28px);
+}
+
+.text4x {
+    font-size: clamp(24px, 1.875vw, 48px);
+}
+

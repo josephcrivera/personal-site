@@ -17,7 +17,7 @@ function ContactInfo({title, logo}){
                 className="ml-5"
             />
             <div className="flex items-center p-3">
-                <p className="text-lg text-center text-white">{title}</p>
+                <p className="textlg text-center text-white">{title}</p>
             </div>
         </div>
     );
@@ -85,11 +85,11 @@ function XPBox ({idx}) {
                 className="box-item absolute flex flex-col bg-[#51A493] w-full h-full backface-hidden rounded-xl"
                 >
                     <div>
-                        <p className="mt-3 text-4xl text-center text-white">{companies[idx]}</p>
+                        <p className="mt-3 text4x text-center text-white">{companies[idx]}</p>
                         <p className="text-center align-bottom text-white">{timeframes[idx]}</p>
                     </div>
                     <div className="flex flex-col w-full h-full items-center justify-end">
-                        <p className="mt-3 text-2xl text-white">{positions[idx]}</p>
+                        <p className="mt-3 textxl text-white">{positions[idx]}</p>
                     </div>
                     <div className="flex flex-col w-full h-full justify-end items-center px-5 mt-5">
                         <LangTags langs={used} idx={idx} />
@@ -195,7 +195,7 @@ function SkillWheel() {
                 className="circle-item bg-white rounded-full p-2"
                 />
             </div>
-            <p className="text-xl text-center text-white fg-reg mb-5 border-y-2 border-white py-10 w-full">Pick a skill to learn more</p>
+            <p className="textxl text-center text-white fg-reg mb-5 border-y-2 border-white py-10 w-full">Pick a skill to learn more</p>
             <div className="w-full flex flex-row gap-15 justify-center">
                 <motion.img
                 src={icons2[0]}
@@ -233,7 +233,7 @@ function SkillWheel() {
             </div>
         </div>
         <div className="ml-30 w-1/4 h-1/2 flex flex-col justify-center items-center bg-green-600/50">
-            <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col pl-5 justify-center text-xl">
+            <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col pl-5 justify-center textxl">
                 <h3 className="mb-5">{skills[currSkill]}</h3>
                 <ul className="list-disc list-inside">
                     <li className="fg-reg mb-5">{skillsDesc[currSkill][0]}</li>
@@ -243,8 +243,8 @@ function SkillWheel() {
             </div>
         </div>
         <div className="ml-30 w-1/3 h-1/2 flex flex-col justify-center items-center">
-             <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col justify-center text-xl">
-                <p className="text-2xl mb-5 fg-reg mx-10">{skillBlurbs[currSkill]}</p>
+             <div className="box-item w-full bg-[#FFF9EC] rounded-xl h-full flex flex-col justify-center textxl">
+                <p className="textxl mb-5 fg-reg mx-10">{skillBlurbs[currSkill]}</p>
              </div>
         </div>
     </div>
@@ -297,17 +297,17 @@ function Project ({currIdx, itemIdx}) {
         >
             <div className="flex flex-row w-full h-1/4 bg-[#FFF9EC] px-10 pt-5 rounded-xl">
                 <div className="w-full h-full rounded-xl">
-                    <h3 className="text-2xl">{titles[itemIdx]}</h3>
-                    <p className="text-lg">{descriptions[itemIdx]}</p>
+                    <h3 className="textxl">{titles[itemIdx]}</h3>
+                    <p className="textlg">{descriptions[itemIdx]}</p>
                 </div>
             </div>
             <div className="flex flex-col w-full h-full px-10 justify-center">
-                <ul className="list-disc list-inside text-lg px-5">
+                <ul className="list-disc list-inside textlg px-5">
                     <li className="fg-reg mb-5">{projDescs[itemIdx][0]}</li>
                     <li className="fg-reg mb-5">{projDescs[itemIdx][1]}</li>
                     <li className={projDescs[itemIdx].length == 3 ? "fg-reg mb-5" : "opacity-0"}>{projDescs[itemIdx][2]}</li>
                 </ul>
-                <p className="fg-reg text-lg pt-5">{projBlurbs[itemIdx]}</p>
+                <p className="fg-reg textlg pt-5">{projBlurbs[itemIdx]}</p>
             </div>
             <div className="w-full h-1/4 pb-2">
                 <LangTags langs={used} idx={itemIdx}/>
@@ -335,7 +335,7 @@ export default function Home() {
             prev == 0 ? 0 : (prev - 1 + projects.length) % projects.length);
     return (
     <main>
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth pt-16" id="sections">
+    <div className="snap-y snap-mandatory h-screen overflow-y-scroll scroll-smooth min-w-7xl pt-16 max-w-full" id="sections">
         {/* Image, Name, Blurb */}
         <section className="snap-start h-screen section">
         <div className="mb-10 flex flex-col h-full">
@@ -351,17 +351,17 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col w-3/4 h-full ml-10 items-center">
                     <h1 id="about" className="pt-24 my-5 text-8xl text-center fg-reg">Joseph Rivera</h1>
-                    <p className="text-xl mb-10 text-center fg-reg">Computer Science Student, University of Chicago</p>
-                    <p className="text-2xl mb-10 fg-reg mx-10 indented-paragraph w-3/4">From buying programming textbooks with birthday money and taking 
+                    <p className="textxl mb-10 text-center fg-reg">Computer Science Student, University of Chicago</p>
+                    <p className="textxl mb-10 fg-reg mx-10 indented-paragraph w-3/4">From buying programming textbooks with birthday money and taking 
                         dual enrollment courses on Saturdays to cross-country career treks and summer internships, I have always 
                         been looking for ways to learn more about computer science. Although I have taken many enlightening high 
                         school and college courses, I find that my best learning is done outside of the classroom.
                     </p>
-                    <p className="text-2xl mb-20 fg-reg mx-10 indented-paragraph w-3/4">Currently, my focus is on web and desktop application development. 
+                    <p className="textxl mb-20 fg-reg mx-10 indented-paragraph w-3/4">Currently, my focus is on web and desktop application development. 
                     I am looking to gain further expertise through future personal projects and internships. My ability to work independently and 
                     eagerness to learn make any task an exciting journey. 
                     </p>
-                    <p className="text-2xl text-center fg-reg mb-5">Contact Info</p>
+                    <p className="textxl text-center fg-reg mb-5">Contact Info</p>
                     <div className="w-full h-1/4 flex flex-row gap-10 justify-center">
                         <a href="https://www.linkedin.com/in/joseph-rivera-951b74293" target="_blank"><ContactInfo title="Joseph Rivera" logo="/linkedin.svg"/></a>
                         <a href="https://www.github.com/josephcrivera" target="_blank"><ContactInfo title="josephcrivera" logo="/github.svg"/></a>
