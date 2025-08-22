@@ -76,18 +76,23 @@ a.navbar:hover {
 }
 
 .circle-item {
-  position: absolute;
-  top: 20%;
-  left: 40%;
-  width: 70px;
-  height: 70px;
+  /* position: absolute; */
+  /* top: 20%;
+  left: 40%; */
+  width: 80px;
+  height: 80px;
 }
 
 .box-item {
     box-shadow: 0px 5px 5px 1px grey;
+    border: 2px solid black;
 }
 
 .section {
     max-width: 120rem;
     padding: 0px 40px;
+}
+
+.indented-paragraph {
+    text-indent: 40px;
 }
