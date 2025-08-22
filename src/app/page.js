@@ -445,7 +445,7 @@ export default function Home() {
                     <p className="text-center fg-reg"> Feel free to submit your infomration below if you have ideas, need guidance on a project, or simply wish to chat.</p>
                 </div>
                 <div className="w-1/2 mx-auto">
-                    <form action="https://email.josephrivera.site/submit.php" method="post" id="contact-form" className="mx-auto">
+                    <form action="https://formspree.io/f/xldlqbez" method="post" id="contact-form" className="mx-auto">
                         <label className="font-semibold">Name</label><br/>
                         <input type="text" placeholder="Name" name="name" required className="border-1 rounded-md w-full h-8 p-3 mb-5 bg-white"></input><br/>
                         <label className="font-semibold">Email</label><br/>
