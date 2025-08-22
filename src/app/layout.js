@@ -19,7 +19,7 @@ const faculty = Faculty_Glyphic({
 });
 
 export const metadata = {
-  title: "Joseph Rivera - Full Stack Developer",
+  title: "Joseph Rivera - Student Developer",
   description: "A personal portfolio",
 };
 
