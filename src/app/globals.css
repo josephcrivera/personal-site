@@ -40,7 +40,7 @@ h2 {
 
 h3 {
     color: #F283B6;
-    font-size: clamp(16px, 1.667vw, 48px);
+    font-size: clamp(24px, 1.667vw, 48px);
 }
 
 h2#projects, h2#skills {
@@ -76,11 +76,13 @@ a.navbar:hover {
 }
 
 .circle-item {
-  /* position: absolute; */
-  /* top: 20%;
-  left: 40%; */
-  width: 5em;
-  height: 5em;
+  position: relative;
+  width: clamp(60px, 4.167vw, 100px);
+  height: clamp(60px, 4.167vw, 100px);
+}
+
+.headshot {
+    width: clamp(384px, 26.042vw, 518px)
 }
 
 .box-item {
@@ -102,7 +104,11 @@ a.navbar:hover {
 }
 
 .textxl {
-    font-size: clamp(20px, 1.25vw, 28px);
+    font-size: clamp(16px, 1.25vw, 28px);
+}
+
+.textxl2 {
+    font-size: clamp(10px, 1.25vw, 28px);
 }
 
 .text4x {

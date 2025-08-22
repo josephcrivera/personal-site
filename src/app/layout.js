@@ -37,11 +37,11 @@ export default function RootLayout({ children }) {
                         <Link href="/" className="text-2xl navbar">&#8962;</Link>
                     </div>
                     <div className="flex flex-row gap-8">
-                        <a href="#about" className="navbar">About</a>
-                        <a href="#skills" className="navbar">Skills</a>
-                        <a href="#experience" className="navbar">Experience</a>
-                        <a href="#projects" className="navbar">Projects</a>
-                        <a href="#contact" className="navbar">Contact</a>
+                        <a href="#about" className="navbar textlg">About</a>
+                        <a href="#skills" className="navbar textlg">Skills</a>
+                        <a href="#experience" className="navbar textlg">Experience</a>
+                        <a href="#projects" className="navbar textlg">Projects</a>
+                        <a href="#contact" className="navbar textlg">Contact</a>
                     </div>
                 </div>
             </nav>
