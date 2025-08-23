@@ -31,7 +31,7 @@ function LangTags({langs, idx}) {
         <div className="flex w-full h-full gap-3 items-center justify-center">
             <div className="flex flex-wrap gap-3 items-center justify-center w-[90%] h-full">
                 {langs[idx].map((lang, i) => (
-                    <p key={i} className="bg-[#F283B6] px-5 py-2 rounded-full">{lang}</p>
+                    <p key={i} className="bg-[#F283B6] px-5 py-2 rounded-full textlg">{lang}</p>
                 ))}
             </div>
         </div>
@@ -317,7 +317,7 @@ function Project ({currIdx, itemIdx}) {
             <div className="w-full h-1/4 pb-2">
                 <LangTags langs={used} idx={itemIdx}/>
             </div>
-            <div className="flex justify-center text-gray-400 pb-2">
+            <div className="flex justify-center text-gray-400 pb-2 textlg">
                 <a href={links[itemIdx]} target="_blank">Github Repository Link</a>
             </div>
         </motion.div>
